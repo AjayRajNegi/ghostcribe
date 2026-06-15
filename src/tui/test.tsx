@@ -127,11 +127,13 @@ export function Action({
   label,
   shortcut,
   commit,
+  onComplete,
   autoFocus,
 }: {
   label: string;
   shortcut: string;
   commit: string;
+  onComplete: () => void;
   autoFocus?: boolean;
 }) {
   const { isFocused } = useFocus({ autoFocus });
@@ -146,16 +148,19 @@ export function Action({
   useInput((input, key) => {
     if (!isFocused || !ready) return;
 
+    if (key.escape) {
+      onComplete();
+      return;
+    }
+
     if (key.return || input.toLowerCase() === shortcut) {
-      const isYes = label === "Yes";
-      if (isYes && commit) {
+      if (label === "Yes" && commit) {
         execSync(`git commit -m "${commit.replace(/"/g, '\\"')}"`, {
           stdio: "inherit",
         });
       }
-      // exit();
+      onComplete();
     }
-    // exit();
   });
 
   const isYes = label === "Yes";

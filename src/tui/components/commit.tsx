@@ -6,7 +6,7 @@ import { colors } from "./constants";
 import { Action, ModelAction } from "../test";
 import { runCommit } from "../../cli/commit";
 
-export const Commit = () => {
+export const Commit = ({ onComplete }: { onComplete: () => void }) => {
   const [models, setModels] = useState<string[]>([]);
   const [commit, setCommit] = useState<string | null>(null);
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
@@ -100,8 +100,19 @@ export const Commit = () => {
         </Box>
 
         <Box flexDirection="row" gap={4}>
-          <Action label="Yes" shortcut="y" commit={commit} autoFocus />
-          <Action label="No" shortcut="n" commit={commit} />
+          <Action
+            label="Yes"
+            shortcut="y"
+            commit={commit}
+            onComplete={onComplete}
+            autoFocus
+          />
+          <Action
+            label="No"
+            shortcut="n"
+            commit={commit}
+            onComplete={onComplete}
+          />
         </Box>
         <Box marginTop={1}>
           <Text color={colors.muted} dimColor>

@@ -1,9 +1,15 @@
 import { Box, Text } from "ink";
 import { Commit } from "./commit";
 
-export const OutputContainer = ({ command }: { command: string }) => {
+export const OutputContainer = ({
+  command,
+  onComplete,
+}: {
+  command: string;
+  onComplete: () => void;
+}) => {
   if (command == "/help") {
-    return <Commit />;
+    return <Commit onComplete={onComplete} />;
   }
   return <></>;
 };

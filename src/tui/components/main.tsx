@@ -7,9 +7,15 @@ import { colors } from "./constants";
 export const Main = () => {
   const [query, setQuery] = useState("");
   const [command, setCommand] = useState("");
+
   function onSubmit() {
     setCommand(query);
+    setQuery("");
   }
+  function onComplete() {
+    setCommand("");
+  }
+
   return (
     <>
       <Box
@@ -31,7 +37,7 @@ export const Main = () => {
           <Text>{">"}</Text>
           <TextInput value={query} onChange={setQuery} onSubmit={onSubmit} />
         </Box>
-        <OutputContainer command={command} />
+        <OutputContainer command={command} onComplete={onComplete} />
       </Box>
     </>
   );
