@@ -18,7 +18,7 @@ program
   });
 
 // program
-//   .command("ghostscribe")
+//   .command("commit")
 //   .description("Generate a commit message from staged changes")
 //   .action(async (options) => {
 //     const { waitUntilExit } = render(React.createElement(UserInput));

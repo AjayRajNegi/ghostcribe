@@ -123,7 +123,7 @@ export const UserInput = () => {
   );
 };
 
-function Action({
+export function Action({
   label,
   shortcut,
   commit,
@@ -182,7 +182,7 @@ function Action({
     </Box>
   );
 }
-function ModelAction({
+export function ModelAction({
   model,
   autoFocus,
   onSelect,

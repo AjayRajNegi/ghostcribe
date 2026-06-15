@@ -1,6 +1,6 @@
 import { parseDiff } from "../diff/parser";
-import { getContext } from "../git/context";
-import { getDiff } from "../git/diff";
+import { getContext } from "../tui/components/git/context";
+import { getDiff } from "../tui/components/git/diff";
 import { callClaude } from "../llm/claude";
 import { callLLM } from "../llm/client";
 import { llmPrompt } from "../prompts/commit";

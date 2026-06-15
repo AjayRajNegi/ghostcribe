@@ -1,5 +1,5 @@
 import type { FileDiff } from "../diff/parser";
-import type { RepoContext } from "../git/context";
+import type { RepoContext } from "../tui/components/git/context";
 
 interface GenerationInput {
   systemPrompt: string;
