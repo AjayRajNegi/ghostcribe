@@ -153,9 +153,9 @@ export function Action({
           stdio: "inherit",
         });
       }
-      exit();
+      // exit();
     }
-    exit();
+    // exit();
   });
 
   const isYes = label === "Yes";
