@@ -10,7 +10,7 @@ export const Main = () => {
 
   function onSubmit() {
     setCommand(query);
-    setQuery("");
+    //setQuery("");
   }
   function onComplete() {
     setCommand("");

@@ -8,8 +8,8 @@ export const OutputContainer = ({
   command: string;
   onComplete: () => void;
 }) => {
-  if (command == "/help") {
+  if (command === "/help") {
     return <Commit onComplete={onComplete} />;
   }
-  return <></>;
+  return null;
 };

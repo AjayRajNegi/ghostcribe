@@ -154,12 +154,13 @@ export function Action({
     }
 
     if (key.return || input.toLowerCase() === shortcut) {
-      if (label === "Yes" && commit) {
+      const isYes = label === "Yes";
+      if (isYes && commit) {
         execSync(`git commit -m "${commit.replace(/"/g, '\\"')}"`, {
           stdio: "inherit",
         });
       }
-      onComplete();
+      //onComplete();
     }
   });
 
