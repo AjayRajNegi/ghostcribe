@@ -1,10 +1,11 @@
-import { useStdout } from "ink";
 import { useState, useEffect } from "react";
 import { getModels } from "../../llm/getModels";
 import { Box, Text } from "ink";
 import { colors } from "./constants";
-import { Action, ModelAction } from "../test";
+
 import { runCommit } from "../../cli/commit";
+import { Action } from "./action";
+import { ModelAction } from "./modelAction";
 
 export const Commit = ({ onComplete }: { onComplete: () => void }) => {
   const [models, setModels] = useState<string[]>([]);
@@ -44,18 +45,20 @@ export const Commit = ({ onComplete }: { onComplete: () => void }) => {
           <Text color={colors.accent}>›</Text>
         </Text>
         <Box flexDirection="column">
-          {models.map((model, index) => (
-            <>
-              <ModelAction
-                key={model}
-                model={model}
-                autoFocus={index === 0}
-                onSelect={(model) => {
-                  setSelectedModel(model);
-                }}
-              />
-            </>
-          ))}
+          {models.map((model, index) => {
+            return (
+              <>
+                <ModelAction
+                  key={model}
+                  model={model}
+                  autoFocus={index === 0}
+                  onSelect={(model) => {
+                    setSelectedModel(model);
+                  }}
+                />
+              </>
+            );
+          })}
         </Box>
       </Box>
     );
