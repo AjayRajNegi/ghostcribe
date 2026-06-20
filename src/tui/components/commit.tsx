@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { getModels } from "../../llm/getModels";
 import { Box, Text } from "ink";
 import { colors } from "./constants";
-
 import { runCommit } from "../../cli/commit";
 import { Action } from "./action";
 import { ModelAction } from "./modelAction";

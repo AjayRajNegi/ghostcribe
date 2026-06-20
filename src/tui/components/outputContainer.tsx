@@ -1,4 +1,5 @@
-import { Box, Text } from "ink";
+import { useEffect } from "react";
+import { useApp } from "ink";
 import { Commit } from "./commit";
 
 export const OutputContainer = ({
@@ -8,8 +9,17 @@ export const OutputContainer = ({
   command: string;
   onComplete: () => void;
 }) => {
+  const { exit } = useApp();
+
+  useEffect(() => {
+    if (command === "/exit") {
+      exit();
+    }
+  }, [command, exit]);
+
   if (command === "/help") {
     return <Commit onComplete={onComplete} />;
   }
+
   return null;
 };
