@@ -160,7 +160,7 @@ export function Action({
           stdio: "inherit",
         });
       }
-      //onComplete();
+      onComplete();
     }
   });
 
