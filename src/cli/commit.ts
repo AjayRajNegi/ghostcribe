@@ -14,8 +14,6 @@ export const runCommit = async ({
   dryRun,
   model,
 }: CommitOptions): Promise<string> => {
-  // console.log(" ");
-  // console.log("Reading staged changes...");
   let rawDiff: string;
   try {
     rawDiff = getDiff();
@@ -24,7 +22,6 @@ export const runCommit = async ({
     process.exit(1);
   }
 
-  // console.log("Reading repo context...");
   const context = await getContext();
   const fileDiffs = parseDiff(rawDiff);
   const { systemPrompt, userMessage } = await llmPrompt({ context, fileDiffs });
@@ -40,10 +37,6 @@ export const runCommit = async ({
     );
     process.exit(1);
   }
-
-  // console.log("Suggested commit message:");
-  // console.log(" ");
-  // console.log(commitMessage);
 
   if (dryRun) {
     console.log("\n[dry-run] Skipping git commit.");
