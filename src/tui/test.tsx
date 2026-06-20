@@ -72,15 +72,15 @@ export const UserInput = () => {
     );
   }
 
-  if (commit === null) {
-    return (
-      <Box paddingY={1}>
-        <Text color={C.muted}>
-          <Text color={C.accent}>›</Text> ghostscribe is reading your diff
-        </Text>
-      </Box>
-    );
-  }
+  // if (commit === null) {
+  //   return (
+  //     <Box paddingY={1}>
+  //       <Text color={C.muted}>
+  //         <Text color={C.accent}>›</Text> ghostscribe is reading your diff
+  //       </Text>
+  //     </Box>
+  //   );
+  // }
 
   return (
     <Box flexDirection="column" width={Math.min(terminalWidth - 2, 72)}>
