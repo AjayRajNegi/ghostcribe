@@ -35,7 +35,7 @@ export const runCommit = async ({
       "LLM call failed:",
       error instanceof Error ? error.message : error,
     );
-    // process.exit(1);
+    process.exit(1);
   }
 
   if (dryRun) {
